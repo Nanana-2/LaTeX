@@ -1,0 +1,113 @@
+
+\documentclass[dvipdfmx,b5paper,twoside]{jsarticle}
+\usepackage{tikz}
+\usetikzlibrary{intersections,calc,arrows.meta,decorations.markings,decorations.pathmorphing}
+\usepackage{graphicx,amsmath,ascmac,amssymb,multicol,tcolorbox,float,multirow,physics}
+\tcbuselibrary{raster,skins}
+
+
+\begin{document}
+\begin{center}
+  {\large \textbf{統計力学第3　中間試験予想問題}}
+\end{center}
+
+
+\subsection*{第1問}
+  量子系において，系が確率 $p_i$ （$p_i \ge 0, \sum_i p_i = 1$）で規格化された純粋状態 $|\psi_i\rangle$ にあるとする。この系の状態を完全に記述する密度行列 $\hat{\rho}$ は次のように定義される。
+\begin{equation}
+  \hat{\rho} = \sum_i p_i |\psi_i\rangle\langle\psi_i|
+\end{equation}
+任意の完全正規直交基底を $\{|k\rangle\}$ とする。このとき，以下の問いに答えよ。
+
+\begin{itemize}
+  \item[(1)] 密度行列がエルミート演算子（$\hat{\rho}^\dagger = \hat{\rho}$）であることを示せ。
+  \item[(2)] 密度行列のトレースが1（$\Tr[\hat{\rho}] = 1$）となることを，基底 $\{|k\rangle\}$ を用いた完全性関係 $\sum_k |k\rangle\langle k| = \hat{I}$ を用いて証明せよ。
+  \item[(3)] ある物理量に対応するエルミート演算子を $\hat{A}$ とする。この混合状態における物理量の期待値 $\langle \hat{A} \rangle = \sum_i p_i \langle \psi_i | \hat{A} | \psi_i \rangle$ が
+  \begin{equation}
+    \langle \hat{A} \rangle = \Tr[\hat{\rho} \hat{A}]
+  \end{equation}
+  と書けることを，トレースの定義に従って証明せよ。
+  \item[(4)] 任意のベクトル $|\phi\rangle$ に対して，$\langle \phi | \hat{\rho} | \phi \rangle \ge 0$ が成り立つこと（半正定値性）を示せ。また，この性質がいかなる状態を観測しても，その確率が負にならないことを保証している物理的な理由を簡潔に述べよ。
+\end{itemize}
+
+
+
+
+
+
+\subsection*{第2問}
+2つのスピン1/2系（系A，系B）からなる複合系を考える。各系の基底状態を$Z$方向のスピン上向き $|0\rangle$，下向き $|1\rangle$ とする。また，$X$方向のスピン状態を以下のように定義する。
+\begin{equation}
+  |+\rangle = \frac{1}{\sqrt{2}}(|0\rangle + |1\rangle), \quad |-\rangle = \frac{1}{\sqrt{2}}(|0\rangle - |1\rangle)
+\end{equation}
+  行列表現を用いる際は，基底を $|0\rangle = \begin{pmatrix} 1 \\ 0 \end{pmatrix}, |1\rangle = \begin{pmatrix} 0 \\ 1 \end{pmatrix}$ とする。
+
+\begin{itemize}
+  \item[(1)] 系Aにおいて，純粋状態 $|0\rangle$ と $|1\rangle$ がそれぞれ確率 $1/2$ で混ざった古典的な混合状態の密度行列を $\rho_1$ とする。
+また，純粋状態 $|+\rangle$ と $|-\rangle$ がそれぞれ確率 $1/2$ で混ざった混合状態の密度行列を $\rho_2$ とする。$\rho_1$ と $\rho_2$ をそれぞれ $2 \times 2$ 行列で表し，$\rho_1 = \rho_2$ となることを示せ。
+  \item[(2)] 系Aと系Bの複合系において，以下のベル状態（最大もつれ状態）を考える。
+  \begin{equation}
+    |\Phi^+\rangle = \frac{1}{\sqrt{2}}(|0_A 0_B\rangle + |1_A 1_B\rangle)
+  \end{equation}
+  この複合系全体の密度行列 $\rho_{AB} = |\Phi^+\rangle\langle\Phi^+|$ を，基底 $\{|0_A 0_B\rangle, |0_A 1_B\rangle, |1_A 0_B\rangle, |1_A 1_B\rangle\}$ を用いて $4 \times 4$ 行列で書き下せ。
+  \item[(3)] 設問2で求めた $\rho_{AB}$ が純粋状態であることを，純粋度（Purity）の条件 $\text{Tr}(\rho_{AB}^2) = 1$ を計算することで証明せよ。
+  \item[(4)] 複合系 $\rho_{AB}$ から系Bの情報を見失った（無視した）とする。このとき，系Aの観測にかかる情報を記述する縮約密度行列 $\rho_A$は，系Bに関する部分トレース $\rho_A = \text{Tr}_B(\rho_{AB})$ によって計算される。
+部分トレースの定義 $\text{Tr}_B(\rho_{AB}) = \langle 0_B | \rho_{AB} | 0_B \rangle + \langle 1_B | \rho_{AB} | 1_B \rangle$ に従って $\rho_A$ を計算し，$2 \times 2$ 行列で求めよ。
+  \item[(5)] 設問4で求めた $\rho_A$ について，以下の問いに答えよ。
+  \begin{itemize}
+    \item[(A)] $\text{Tr}(\rho_A^2)$ を計算し，系Aが純粋状態か混合状態かを判定せよ。
+    \item[(B)] この $\rho_A$ の結果と設問1の結果を踏まえ，全体としては純粋状態（情報を完全に持っている）であるにもかかわらず，部分系Aだけを見ると混合状態（情報が失われている）になってしまうのはなぜか，その物理的な理由をエンタングルメント（量子もつれ）という言葉を使って簡潔に説明せよ。
+  \end{itemize}
+\end{itemize}
+
+
+
+
+
+
+
+\subsection*{第3問}
+
+量子系の密度行列 $\hat{\rho}$ に対して，フォン・ノイマン・エントロピー $S$ は次のように定義される（ここではボルツマン定数を $k_B$ とする）。
+  \begin{equation}
+  S = -k_B \Tr[\hat{\rho} \ln \hat{\rho}]
+  \end{equation}
+  
+  
+密度行列 $\hat{\rho}$ がハミルトニアン $\hat{H}$ と可換（$[\hat{\rho}, \hat{H}] = 0$）であり，共通のエネルギー固有状態 $\{|n\rangle\}$ （$\hat{H}|n\rangle = E_n|n\rangle$）を用いて以下のように対角化されているとする。
+\begin{equation}
+  \hat{\rho} = \sum_n w_n |n\rangle\langle n|
+\end{equation}
+（ただし，$w_n$ は系が状態 $|n\rangle$ にいる確率であり，$\sum_n w_n = 1, w_n \ge 0$ を満たす。）以下の問いに答えよ。
+\begin{itemize}
+  \item[(1)] エントロピー $S$ を，固有値 $w_n$ を用いた具体的な和の形（スペクトル分解表示）で書き下せ。
+  \item[(2)] 系が孤立しており，エネルギーが一定であるとする。このとき，系が取りうる状態の総数を $W$ とし，すべての状態が等確率で実現している（$w_n = 1/W$）とする。
+このときのフォン・ノイマン・エントロピー $S$ を計算し，ボルツマンのエントロピー公式を導出せよ。
+  \item[(3)] 系が温度 $T$ の巨大な熱浴と接しているとき，密度行列は以下のカノニカル分布で与えられる。
+  \begin{equation}
+    \hat{\rho} = \frac{1}{Z} e^{-\beta \hat{H}}
+  \end{equation}
+  （ただし，$\beta = \frac{1}{k_B T}$ である。）$\Tr[\hat{\rho}] = 1$ が成り立つという条件から，分配関数 $Z$ を $\hat{H}$ のトレースを用いた式で定義せよ。
+  \item[(4)] カノニカル分布の密度行列 $\hat{\rho}$ をフォン・ノイマン・エントロピーの定義式に代入し展開せよ。系の内部エネルギーを $E = \langle \hat{H} \rangle = \Tr[\hat{\rho} \hat{H}]$，ヘルムホルツの自由エネルギーを $F = -\frac{1}{\beta} \ln Z$ と定義するとき，熱力学の基本関係式
+  \begin{equation}
+    F = E - TS
+  \end{equation}
+  が量子統計力学の枠組みから厳密に導かれることを示せ。
+\end{itemize}
+
+
+
+
+
+\subsection*{第4問}
+以下の各記述について，正しい場合は「○」，誤っている場合は「×」を記し，なぜそうなるのか物理的・数学的な理由を簡潔に説明せよ。
+\begin{itemize}
+  \item[(1)] 密度行列 $\hat{\rho}$ を用いてある物理量 $\hat{A}$ の期待値を計算する公式 $\langle \hat{A} \rangle = \Tr[\hat{\rho}\hat{A}]$ は，系が「混合状態」の場合にのみ適用できるものであり，系が単一の「純粋状態」にある場合にはこの公式を使うことはできない。
+  \item[(2)] ある量子系の密度行列 $\hat{\rho}$ を計算したところ，対角行列になった。このことから，「この系は完全に古典的な混合状態にあり，いかなる物理量を測定しても量子特有の干渉効果（重ね合わせ）が観測されることは絶対にない」と断言できる。
+  \item[(3)] 2つのスピンからなる複合系AB全体が「純粋状態」であるとする。このとき，系全体のフォン・ノイマン・エントロピー $S_{AB} = -\Tr(\rho_{AB} \ln \rho_{AB})$ は，内部でどのような量子もつれ（エンタングルメント）が存在していても必ず $0$ になる。
+  \item[(4)] 複合系ABについて，系Bを部分トレースして得られた系Aの縮約密度行列 $\rho_A = \Tr_B(\rho_{AB})$ を調べたところ，「混合状態」であった。この事実から，「元々の複合系 $\rho_{AB}$ も必ず混合状態であった」と結論づけることができる。
+  \item[(5)] 「状態Aと状態Bを50\%ずつの古典的確率で混ぜた集団」と，「状態Cと状態Dを50\%ずつの古典的確率で混ぜた集団」がある。使っている状態（基底）が全く異なる場合でも，それぞれの密度行列が数学的に完全に一致することはあり得る。
+\end{itemize}
+
+
+
